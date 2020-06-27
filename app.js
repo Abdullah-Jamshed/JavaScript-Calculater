@@ -10,11 +10,13 @@ btn.addEventListener("click", function (e) {
   ) {
     inp.value += e.target.textContent;
   } else if (
+    e.target.textContent.charCodeAt() === 37 ||
     e.target.textContent.charCodeAt() === 47 ||
     (e.target.textContent.charCodeAt() >= 42 &&
       e.target.textContent.charCodeAt() <= 46)
   ) {
     if (
+      cliInp.slice(-1).charCodeAt() === 37 ||
       cliInp.slice(-1).charCodeAt() === 47 ||
       (cliInp.slice(-1).charCodeAt() >= 42 &&
         cliInp.slice(-1).charCodeAt() <= 45)
@@ -36,11 +38,27 @@ btn.addEventListener("click", function (e) {
           cliSign = cliSign.replace(/\*/, e.target.textContent);
           inp.value = cliInp.slice(0, length - 1) + cliSign;
           break;
+        case "%":
+          cliSign = cliSign.replace(/\%/, e.target.textContent);
+          inp.value = cliInp.slice(0, length - 1) + cliSign;
+          break;
         default:
           console.log("default");
       }
     } else {
       inp.value += e.target.textContent;
+    }
+  } else if (e.target.className === "signBtn srqrt") {
+    if (inp.value !== "") {
+      inp.value = Math.sqrt(inp.value);
+    }
+  } else if (e.target.className === "signBtn sq") {
+    if (inp.value !== "") {
+      inp.value = inp.value ** 2;
+    }
+  } else if (e.target.className === "signBtn sin") {
+    if (inp.value !== "") {
+      inp.value = Math.sin(inp.value);
     }
   }
 });
@@ -55,9 +73,9 @@ bck.addEventListener("click", function (e) {
   inp.value = inp.value.slice(0, -1);
 });
 
-
-
 var cliEval = document.querySelector(".eval");
 cliEval.addEventListener("click", function (e) {
-  inp.value = eval(inp.value);
+  if (inp.value !== "") {
+    inp.value = eval(inp.value);
+  }
 });
