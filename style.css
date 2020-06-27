@@ -9,7 +9,7 @@ body{
 }
 .main{
     background-color: #fafafa;
-    width: max-content;
+    width: 50%;
     margin: 10px auto;
     border: 1px solid rgb(224, 223, 223);
     border-radius: 5px 5px 5px 5px;
@@ -18,7 +18,7 @@ body{
 
 .cli{
     text-align: center;
-    margin: 0px auto;
+    /* margin: 0px auto; */
     padding: 0px;
 }
 
@@ -47,15 +47,21 @@ body{
     margin-top: 20px;
 }
 
+.numBtn{
+    display: flex;
+    justify-content: space-between;
+}
 
 .numBtn span{
     display: inline-block;
-    width: 100px;
+    width: 12.4%;
     font-size: 35px;
     text-align: center;
     padding: 25px;
     margin-top: 4px;
     background-color: #f3f3f3;
+    /* margin-right: 3px; */
+    /* flex-shrink: 0; */
 }
 
 .numBtn span:hover{
@@ -69,11 +75,11 @@ body{
 }
 
 .numBtn span.cls{
-    width: 66.9%;    
+    width: 73%;    
 }
 
 .numBtn span.bck{
-    width: 16%; 
+    width: 12.5%; 
     float: right;  
     background-color: #6b6b6b !important; 
     color:white !important;
@@ -114,4 +120,8 @@ span.eval:active {
 .cls {
     background-color: #565151 !important;
     color: white !important;
+}
+
+span.srqrt,span.sq{
+    font-size: 30px !important;
 }
